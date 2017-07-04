@@ -1,9 +1,10 @@
 {% if user %}
     <h1>Salesperson Blotter</h1>
     <h3>Hello, {{ user.name }}.</h3>
-    <form action="" id="userform">
-      <p>Input a comma delimited list of CUSIP numbers.</p>
-      <textarea rows="4" cols="50" form="userform"></textarea>
+    <form action="{% url 'app:submit' user.id %}" method="post" id="userform">
+      {% csrf_token %}
+      <p>Input a space delimited list of CUSIP numbers.</p>
+      <textarea rows="4" cols="50" name="cusips" form="userform"></textarea>
       <input type="submit">
     </form>
 {% else %}
