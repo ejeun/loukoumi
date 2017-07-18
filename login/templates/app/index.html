@@ -1,0 +1,11 @@
+
+<h1>Salesperson Blotter</h1>
+<h3>Hello, {{ user.name }}.</h3>
+<form action="{% url 'login:submit' user.id %}" method="post" id="userform">
+  {% csrf_token %}
+  <label for="name">Your name: </label>
+<input id="name" type="text" name="name" maxlength="100" required />
+    <label for="pwd">Your name: </label>
+<input id="pwd" type="text" name="pwd" maxlength="100" required />
+  <input type="submit">
+</form>
